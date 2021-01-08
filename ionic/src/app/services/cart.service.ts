@@ -1,30 +1,43 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
-
-export interface Product {
-  id: number;
-  name: string;
-  price: number;
-  amount: number;
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-  data: Product[] = [
-    { id: 0, name: 'Pizza Salami', price: 9.99, amount: 0},
-    { id: 1, name: 'Pizza Classic', price: 7.99, amount: 0},
-    { id: 2, name: 'Soda', price: 5.99, amount: 0},
-    { id: 3, name: 'Water', price: 3.99, amount: 0}
+
+  private data = [
+    {
+      category: 'Pizza',
+      expanded: true,
+      products: [
+        { id: 0, name: 'Salami', price: '8' },
+        { id: 1, name: 'Classic', price: '5' },
+        { id: 2, name: 'Tuna', price: '9' },
+        { id: 3, name: 'Hawai', price: '7' }
+      ]
+    },
+    {
+      category: 'Pasta',
+      products: [
+        { id: 4, name: 'Mac & Cheese', price: '8' },
+        { id: 5, name: 'Bolognese', price: '6' }
+      ]
+    },
+    {
+      category: 'Salad',
+      products: [
+        { id: 6, name: 'Ham & Egg', price: '8' },
+        { id: 7, name: 'Basic', price: '5' },
+        { id: 8, name: 'Ceaser', price: '9' }
+      ]
+    }
   ];
 
   private cart = [];
-  private cartItemCount = new BehaviorSubject(0);
 
   constructor() { }
 
-  getProducts(){
+  getProducts() {
     return this.data;
   }
 
@@ -32,44 +45,7 @@ export class CartService {
     return this.cart;
   }
 
-  getCartItemCount() {
-    return this.cartItemCount;
-  }
-
   addProduct(product) {
-    let added = false;
-    for (const p of this.cart) {
-      if (p.id === product.id) {
-        p.amount += 1;
-        added = true;
-        break;
-      }
-    }
-    if (!added) {
-      product.amount = 1;
-      this.cart.push(product);
-    }
-    this.cartItemCount.next(this.cartItemCount.value + 1);
-  }
-
-  decreaseProduct(product) {
-    for (const [index, p] of this.cart.entries()) {
-      if (p.id === product.id) {
-        p.amount -= 1;
-        if (p.amount === 0) {
-          this.cart.splice(index, 1);
-        }
-      }
-    }
-    this.cartItemCount.next(this.cartItemCount.value - 1);
-  }
-
-  removeProduct(product) {
-    for (const [index, p] of this.cart.entries()) {
-      if (p.id === product.id) {
-        this.cartItemCount.next(this.cartItemCount.value - p.amount);
-        this.cart.splice(index, 1);
-      }
-    }
+    this.cart.push(product);
   }
 }

@@ -1,19 +1,19 @@
-ion-fab-button {
-    height: 70px;
-    width: 70px;
-  }
-   
-  .cart-icon {
-    font-size: 50px;
-  }
-   
-  .cart-length {
-    color: var(--ion-color-primary);
+ion-badge {
+    color: #fff;
     position: absolute;
-    top: 18px;
-    left: 25px;
-    font-weight: 600;
-    font-size: 1em;
-    min-width: 25px;
-    z-index: 10;
-  }
+    top: 0px;
+    right: 0px;
+    border-radius: 100%;
+}
+ 
+.category-block {
+    margin-bottom: 4px;
+}
+ 
+.category-banner {
+    border-left: 8px solid var(--ion-color-secundary);
+    background: var(--ion-color-light);
+    height: 40px;
+    padding: 10px;
+    font-weight: 500;
+}

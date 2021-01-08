@@ -1,9 +1,9 @@
 import { CartService } from './../../services/cart.service';
-import { ModalController, NavController } from '@ionic/angular';
-import { CartModalPage } from './../cart-modal/cart-modal.page';
+import { NavController } from '@ionic/angular';
 import { BehaviorSubject } from 'rxjs';
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { AuthenticateService } from 'src/app/services/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,8 +15,14 @@ export class DashboardPage {
   userEmail: string;
 
   cart = [];
-  products = [];
+  items = [];
   cartItemCount: BehaviorSubject<number>;
+
+  sliderConfig = {
+    slidesPerView: 1.6,
+    spaceBetween: 10,
+    centeredSlides: true
+  };
 
   @ViewChild('cart', {static: false, read: ElementRef})fab: ElementRef;
 
@@ -24,14 +30,13 @@ export class DashboardPage {
     private navCtrl: NavController,
     private authService: AuthenticateService,
     private cartService: CartService,
-    private modalCtrl: ModalController
+    private router: Router
   ) { }
 
+  // tslint:disable-next-line: use-lifecycle-interface
   ngOnInit() {
-    this.products = this.cartService.getProducts();
+    this.items = this.cartService.getProducts();
     this.cart = this.cartService.getCart();
-    this.cartItemCount = this.cartService.getCartItemCount();
-
     this.authService.userDetails().subscribe(res => {
       console.log('res', res);
       if (res !== null) {
@@ -44,47 +49,11 @@ export class DashboardPage {
     });
   }
 
-  addToCart(product) {
-    this.cartService.addProduct(product);
-    this.animateCSS('tada');
+  addToCart(items) {
+    this.cartService.addProduct(items);
   }
 
-  async openCart() {
-    this.animateCSS('bounceOutLeft', true);
-
-    const modal = await this.modalCtrl.create({
-      component: CartModalPage,
-      cssClass: 'cart-modal'
-    });
-    modal.onWillDismiss().then(() => {
-      this.fab.nativeElement.classList.remove('animated', 'bounceOutLeft');
-      this.animateCSS('bounceInLeft');
-    });
-    modal.present();
-  }
-
-  logout() {
-    this.authService.logoutUser()
-      .then(res => {
-        console.log(res);
-        this.navCtrl.navigateBack('');
-      })
-      .catch(error => {
-        console.log(error);
-      });
-  }
-
-  animateCSS(animationName, keepAnimated = false) {
-    const node = this.fab.nativeElement;
-    node.classList.add('animated', animationName)
-    
-    //https://github.com/daneden/animate.css
-    function handleAnimationEnd() {
-      if (!keepAnimated) {
-        node.classList.remove('animated', animationName);
-      }
-      node.removeEventListener('animationend', handleAnimationEnd)
-    }
-    node.addEventListener('animationend', handleAnimationEnd)
+  openCart() {
+    this.router.navigate(['cart']);
   }
 }

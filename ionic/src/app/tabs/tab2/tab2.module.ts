@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { CartModalPageRoutingModule } from './cart-modal-routing.module';
+import { Tab2PageRoutingModule } from './tab2-routing.module';
 
-import { CartModalPage } from './cart-modal.page';
+import { Tab2Page } from './tab2.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CartModalPageRoutingModule
+    Tab2PageRoutingModule
   ],
-  declarations: [CartModalPage]
+  declarations: [Tab2Page]
 })
-export class CartModalPageModule {}
+export class Tab2PageModule {}
