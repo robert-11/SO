@@ -1,32 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { AuthenticateService } from '../services/authentication.service';
+import { AuthenticateService } from './../../services/authentication.service';
+import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class RegisterPage implements OnInit {
 
-  constructor(
-
-    private navCtrl: NavController,
-    private authService: AuthenticateService,
-    private formBuilder: FormBuilder
-
-  ) { }
 
   // tslint:disable-next-line: variable-name
   validations_form: FormGroup;
   errorMessage = '';
+  successMessage = '';
 
   // tslint:disable-next-line: variable-name
   validation_messages = {
     email: [
       { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'Please enter a valid email.' }
+      { type: 'pattern', message: 'Enter a valid email.' }
     ],
     password: [
       { type: 'required', message: 'Password is required.' },
@@ -34,8 +28,13 @@ export class LoginPage implements OnInit {
     ]
   };
 
-  ngOnInit() {
+  constructor(
+    private navCtrl: NavController,
+    private authService: AuthenticateService,
+    private formBuilder: FormBuilder
+  ) { }
 
+  ngOnInit() {
     this.validations_form = this.formBuilder.group({
       email: new FormControl('', Validators.compose([
         Validators.required,
@@ -48,20 +47,22 @@ export class LoginPage implements OnInit {
     });
   }
 
-
-  loginUser(value) {
-    this.authService.loginUser(value)
+  tryRegister(value) {
+    this.authService.registerUser(value)
       .then(res => {
         console.log(res);
         this.errorMessage = '';
-        this.navCtrl.navigateForward('/dashboard');
+        this.successMessage = 'Your account has been created. Please log in.';
       }, err => {
+        console.log(err);
         this.errorMessage = err.message;
+        this.successMessage = '';
       });
   }
 
-  goToRegisterPage() {
-    this.navCtrl.navigateForward('/register');
+  goLoginPage() {
+    this.navCtrl.navigateBack('');
   }
+
 
 }
