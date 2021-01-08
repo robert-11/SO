@@ -1,3 +1,4 @@
+import { CartModalPageModule } from './pages/cart-modal/cart-modal.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
@@ -20,6 +21,7 @@ import { environment } from '../environments/environment';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    CartModalPageModule,
     AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase)
   ],
