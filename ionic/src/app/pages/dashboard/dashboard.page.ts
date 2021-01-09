@@ -20,7 +20,7 @@ export class DashboardPage {
 
   sliderConfig = {
     slidesPerView: 1.6,
-    spaceBetween: 10,
+    spaceBetween: 25,
     centeredSlides: true
   };
 

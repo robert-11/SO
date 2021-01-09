@@ -45,8 +45,8 @@ export class AppComponent {
       },
       {
         title : 'LogOut',
-        url   : './pages/login/login.page.ts',
-        icon  : ''
+        url   : '',
+        icon  : 'log-out-outline'
       }
     ];
   }
