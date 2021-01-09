@@ -56,4 +56,8 @@ export class DashboardPage {
   openCart() {
     this.router.navigate(['cart']);
   }
+
+  openMenu() {
+    this.router.navigate(['menu']);
+  }
 }

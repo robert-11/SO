@@ -4,7 +4,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'welcome',
     pathMatch: 'full'
   },
   {
@@ -32,8 +32,28 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tab2/tab2.module').then( m => m.Tab2PageModule)
   },
   {
-    path: 'cart',
-    loadChildren: () => import('./pages/cart/cart.module').then( m => m.CartPageModule)
+    path: 'confirm',
+    loadChildren: () => import('./pages/confirm/confirm.module').then( m => m.ConfirmPageModule)
+  },
+  {
+    path: 'welcome',
+    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
+  {
+    path: 'menu',
+    loadChildren: () => import('./menu/menu/menu.module').then( m => m.MenuPageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./menu/settings/settings.module').then( m => m.SettingsPageModule)
+  },
+  {
+    path: 'profil',
+    loadChildren: () => import('./menu/profil/profil.module').then( m => m.ProfilPageModule)
+  },
+  {
+    path: 'history',
+    loadChildren: () => import('./menu/history/history.module').then( m => m.HistoryPageModule)
   },
 ];
 

@@ -1,3 +1,4 @@
+import { UtilService } from './../../util.service';
 import { AuthenticateService } from './../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -13,6 +14,7 @@ export class LoginPage implements OnInit {
   constructor(
 
     private navCtrl: NavController,
+    private util: UtilService,
     private authService: AuthenticateService,
     private formBuilder: FormBuilder
 
@@ -59,9 +61,8 @@ export class LoginPage implements OnInit {
         this.errorMessage = err.message;
       });
   }
-
-  goToRegisterPage() {
-    this.navCtrl.navigateForward('/register');
+  login() {
+    this.util.setMenuState(true);
+    this.navCtrl.navigateRoot('/dashboard', {animationDirection: 'forward'});
   }
-
 }

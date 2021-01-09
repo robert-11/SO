@@ -1,8 +1,10 @@
 <ion-header>  
-  <ion-toolbar color="secundary">  
-    <ion-buttons slot="start">  
-      <ion-menu-button color="light"></ion-menu-button>   
-    </ion-buttons>  
+  <ion-toolbar color="dark">  
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   <ion-title>  
     Wapiti
   </ion-title> 
