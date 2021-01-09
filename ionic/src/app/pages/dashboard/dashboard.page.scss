@@ -5,6 +5,10 @@ ion-badge {
     right: 0px;
     border-radius: 100%;
 }
+ion-title {
+    text-align: center;
+    font-weight: 600;
+}
  
 .category-block {
     margin-bottom: 4px;
@@ -12,7 +16,7 @@ ion-badge {
  
 .category-banner {
     border-left: 8px solid var(--ion-color-secundary);
-    background: var(--ion-color-light);
+    background: #2ae3f7;
     height: 40px;
     padding: 10px;
     font-weight: 500;
