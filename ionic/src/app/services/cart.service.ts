@@ -7,44 +7,44 @@ export class CartService {
 
   private data = [
     {
-      category: 'Boots',
+      category: 'Incaltaminte',
       expanded: true,
       boot: [
-        { id: 0, name: 'Boots1', price: '33' },
-        { id: 1, name: 'Boots2', price: '33' },
-        { id: 2, name: 'Boots3', price: '33' },
-        { id: 3, name: 'Boots4', price: '33' },
-        { id: 4, name: 'Boots5', price: '33' }
+        { id: 0, name: 'Bocanci 35-37', price: '35' },
+        { id: 1, name: 'Bocanci 42-45', price: '40' },
+        { id: 2, name: 'Bocanci 36-38', price: '36' },
+        { id: 3, name: 'Bocanci 37-39', price: '37' },
+        { id: 4, name: 'Bocanci 39-41', price: '39' }
       ]
     },
     {
-      category: 'Gloves',
+      category: 'Manusi',
       expanded: true,
       glove: [
-        { id: 5, name: 'Glove1', price: '12' },
-        { id: 6, name: 'Glove2', price: '12' },
-        { id: 7, name: 'Glove3', price: '12' },
-        { id: 8, name: 'Glove4', price: '12' }
+        { id: 5, name: 'Manusi', price: '7' },
+        { id: 6, name: 'Manusi', price: '7' },
+        { id: 7, name: 'Manusi', price: '7' },
+        { id: 8, name: 'Manusi', price: '7' }
       ]
     },
     {
-      category: 'Hats',
+      category: 'Fesuri',
       expanded: true,
       hat: [
-        { id: 9, name: 'Hat1', price: '11' },
-        { id: 10, name: 'Hat2', price: '11' },
-        { id: 11, name: 'Hat3', price: '11' }
+        { id: 9, name: 'Fes', price: '10' },
+        { id: 10, name: 'Fes', price: '10' },
+        { id: 11, name: 'Fes', price: '10' }
       ]
     },
     {
-      category: 'Snowboards',
+      category: 'Snowboarduri',
       expanded: true,
       snowboard: [
-        { id: 12, name: 'Snowboard1', price: '22' },
-        { id: 13, name: 'Snowboard2', price: '22' },
-        { id: 14, name: 'Snowboard3', price: '22' },
-        { id: 15, name: 'Snowboard4', price: '22' },
-        { id: 16, name: 'Snowboard5', price: '22' }
+        { id: 12, name: 'Snowboard', price: '50' },
+        { id: 13, name: 'Snowboard', price: '60' },
+        { id: 14, name: 'Snowboard', price: '55' },
+        { id: 15, name: 'Snowboard', price: '100' },
+        { id: 16, name: 'Snowboard', price: '85' }
       ]
     }
   ];

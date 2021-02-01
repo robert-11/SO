@@ -4,20 +4,22 @@ ion-icon {
 }
 
 .confirmation {
-    height: 100%;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-ion-footer {
-    padding-left: 20px;
-    padding-right: 20px;
-}
  h2 {
     font-size: 18px;
  }
 
- p {
-    font-size: 11px;
- }
+ .main-button {
+    margin-top: 35%;
+}
+ion-content {
+    --padding-top: 16px;
+    --padding-bottom: 16px;
+    --padding-start: 26px;
+    --padding-end: 26px;
+}

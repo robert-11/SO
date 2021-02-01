@@ -27,12 +27,12 @@ export class LoginPage implements OnInit {
   // tslint:disable-next-line: variable-name
   validation_messages = {
     email: [
-      { type: 'required', message: 'Email is required.' },
-      { type: 'pattern', message: 'Please enter a valid email.' }
+      { type: 'required', message: 'Introduceti un email.' },
+      { type: 'pattern', message: 'Introduceti un email valid.' }
     ],
     password: [
-      { type: 'required', message: 'Password is required.' },
-      { type: 'minlength', message: 'Password must be at least 5 characters long.' }
+      { type: 'required', message: 'Introduceti o parola.' },
+      { type: 'minlength', message: 'Parola trebuie sa contina minim 5 caractere.' }
     ]
   };
 

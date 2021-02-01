@@ -1,5 +1,5 @@
 <ion-header>  
-  <ion-toolbar color="dark">  
+  <ion-toolbar color="primary">  
     <ion-buttons slot="start">
       <ion-button (click)="openMenu()">
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
@@ -17,7 +17,7 @@
   </ion-toolbar>
 </ion-header>
  
-<ion-content>
+<ion-content color="primary">
   <div *ngFor="let cat of items" class="category-block">
     <ion-row no-padding class="category-banner">
       <ion-col text-left button tappable (click)="cat.expanded = !cat.expanded" align-self-center>
@@ -35,7 +35,7 @@
               </ion-card-title>
               <ion-card-content>
                 <img src="/assets/icon/boot-redis1.png">
-                <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+                <ion-button color="dark" expand="full" (click)="addToCart(product)">Adauga</ion-button>
               </ion-card-content>
             </ion-card-header>
           </ion-card>
@@ -53,7 +53,7 @@
                </ion-card-title>
                <ion-card-content>
                  <img src="/assets/icon/glove-code2.png">
-                 <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+                 <ion-button color="dark" expand="full" (click)="addToCart(product)">Adauga</ion-button>
                </ion-card-content>
              </ion-card-header>
            </ion-card>
@@ -71,7 +71,7 @@
                </ion-card-title>
                <ion-card-content>
                  <img src="/assets/icon/hat-core1.png">
-                 <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+                 <ion-button color="dark" expand="full" (click)="addToCart(product)">Adauga</ion-button>
                </ion-card-content>
              </ion-card-header>
            </ion-card>
@@ -89,7 +89,7 @@
                </ion-card-title>
                <ion-card-content>
                  <img src="/assets/icon/sb-core1.png">
-                 <ion-button expand="full" (click)="addToCart(product)">Add to Cart</ion-button>
+                 <ion-button color="dark" expand="full" (click)="addToCart(product)">Adauga</ion-button>
                </ion-card-content>
              </ion-card-header>
            </ion-card>
